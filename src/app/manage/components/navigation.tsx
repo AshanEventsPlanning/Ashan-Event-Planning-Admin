@@ -28,6 +28,13 @@ function Navigation() {
                                 </Link>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
+                                <Link href="/manage/tables" legacyBehavior passHref>
+                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                        Tables
+                                    </NavigationMenuLink>
+                                </Link>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem>
                                 <Link href="/manage/orders" legacyBehavior passHref>
                                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                         Orders

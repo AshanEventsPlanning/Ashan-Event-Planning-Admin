@@ -1,6 +1,6 @@
 "use client";
 
-import {Chair} from "@/server/application/common/dtos/schemas";
+import {Table} from "@/server/application/common/dtos/schemas";
 import {ColumnDef} from "@tanstack/react-table";
 import * as z from "zod";
 
@@ -14,7 +14,7 @@ import {
 import {ArrowUpDown, MoreHorizontal} from "lucide-react";
 import EditAction from "@/app/manage/components/table/edit-action";
 
-export const columns: ColumnDef<z.infer<typeof Chair>>[] = [
+export const columns: ColumnDef<z.infer<typeof Table>>[] = [
     {
         accessorKey: "name",
         header: "Name"
@@ -31,7 +31,7 @@ export const columns: ColumnDef<z.infer<typeof Chair>>[] = [
         id: "actions",
         header: "Manage",
         cell: ({row}) => {
-            const chair = row.original;
+            const table = row.original;
 
             return (
                 <DropdownMenu>
@@ -42,7 +42,7 @@ export const columns: ColumnDef<z.infer<typeof Chair>>[] = [
                         </Button>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent align="end">
-                        <DropdownMenuItem><EditAction href={`/manage/chairs/${chair._id}/edit`}
+                        <DropdownMenuItem><EditAction href={`/manage/tables/${table._id}/edit`}
                                                       text={"Edit"}/></DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>

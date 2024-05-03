@@ -1,15 +1,15 @@
-import {AddChairDTO, EditChairDTO} from "@/server/application/common/dtos/cloth";
+import {AddTableDTO, EditTableDTO} from "@/server/application/common/dtos/table";
 import ValidationError from "@/server/application/common/errors/validation-error";
-import createChairCommandHandler from "@/server/application/features/chair/commands/create-chair-command";
+import createTableCommandHandler from "@/server/application/features/table/commands/create-table-command";
 import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const requestBody = AddChairDTO.safeParse(body);
+  const requestBody = AddTableDTO.safeParse(body);
   if (!requestBody.success) {
     throw new ValidationError(requestBody.error.message);
   }
-  await createChairCommandHandler({ ...requestBody.data });
+  await createTableCommandHandler({ ...requestBody.data });
 
   return new Response(null, {
     status: 201,

@@ -40,7 +40,7 @@ function AddChairForm() {
     useMutation({
       mutationFn: addChair,
       onSuccess: () => {
-        // queryClient.invalidateQueries(["CHAIR"]);
+        queryClient.invalidateQueries(["CHAIR"]);
         toast({ title: "Success", variant: "default" });
       },
       onError: () => {

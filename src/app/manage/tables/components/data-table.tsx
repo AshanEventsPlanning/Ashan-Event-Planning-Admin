@@ -60,8 +60,8 @@ export function DataTable<TData, TValue>({
         <div>
             <div className="flex py-4 justify-between">
                 <div>
-                    <Button onClick={() => router.push("/manage/chairs/add")}>
-                        Create Chair
+                    <Button onClick={() => router.push("/manage/tables/add")}>
+                        Create Table
                     </Button>
                 </div>
                 <div className="flex" >
@@ -69,7 +69,7 @@ export function DataTable<TData, TValue>({
                         {(enabledProductsCount)? enabledProductsCount : "No"} Products are enabled
                     </span> */}
                     <Input
-                        placeholder="Filter chairs by name..."
+                        placeholder="Filter tables by name..."
                         value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
                         onChange={(event) =>
                             table.getColumn("name")?.setFilterValue(event.target.value)

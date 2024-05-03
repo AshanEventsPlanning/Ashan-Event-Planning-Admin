@@ -9,6 +9,15 @@ export const Chair = z
         image: z.string().array()
     })
     .strict();
+export const Table = z
+    .object({
+        _id: z.string(),
+        name: z.string(),
+        length: z.number(),
+        width: z.number(),
+        image: z.string().array()
+    })
+    .strict();
 
 export const Address = z.object({
     id: z.string(),

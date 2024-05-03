@@ -6,7 +6,7 @@ function AddChairPage() {
   return (
     <div>
       <h2 className="p-2">
-        Add Product
+        Add Chair
       </h2>
       <div className="p-4">
         <AddChairForm />
