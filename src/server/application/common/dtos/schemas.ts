@@ -19,6 +19,14 @@ export const Table = z
     })
     .strict();
 
+export const Arrangement = z
+    .object({
+        _id: z.string(),
+        name: z.string(),
+        chairspertable: z.number(),
+    })
+    .strict();
+
 export const Address = z.object({
     id: z.string(),
     fname: z.string(),

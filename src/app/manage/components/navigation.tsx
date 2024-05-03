@@ -35,6 +35,13 @@ function Navigation() {
                                 </Link>
                             </NavigationMenuItem>
                             <NavigationMenuItem>
+                                <Link href="/manage/arrangements" legacyBehavior passHref>
+                                    <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                                        Arrangements
+                                    </NavigationMenuLink>
+                                </Link>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem>
                                 <Link href="/manage/orders" legacyBehavior passHref>
                                     <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                                         Orders

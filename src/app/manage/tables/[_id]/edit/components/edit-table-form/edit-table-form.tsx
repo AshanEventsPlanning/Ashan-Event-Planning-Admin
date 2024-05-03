@@ -39,15 +39,15 @@ function EditTableForm({ table }: EditTableFormProps) {
     useMutation({
       mutationFn: editTable,
       onSuccess: () => {
-        queryClient.invalidateQueries(["CHAIR", table._id]);
-        queryClient.invalidateQueries(["CHAIR"]);
+        queryClient.invalidateQueries(["TABLE", table._id]);
+        queryClient.invalidateQueries(["TABLE"]);
         toast({ title: "Success", variant: "default" });
       },
       onError: () => {
         toast({
           title: "Error",
           variant: "destructive",
-          description: "Error while editing product",
+          description: "Error while editing table",
         });
       },
     });
