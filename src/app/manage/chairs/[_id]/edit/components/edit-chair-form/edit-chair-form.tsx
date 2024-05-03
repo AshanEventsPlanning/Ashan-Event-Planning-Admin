@@ -8,22 +8,14 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 
-import { SelectItem } from "@/components/ui/select";
 import { editChair } from "@/lib/api/cloth";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import MediaInput from "@/app/manage/chairs/components/media-input/media-input";
 import NumberInput from "@/app/manage/components/form/number-input";
-import SelectInput from "@/app/manage/components/form/select-input";
 import TextInput from "@/app/manage/components/form/text-input";
-import VariantsInput from "@/app/manage/chairs/components/variants-input/variants-input";
-import { getCategories } from "@/lib/api/category";
 import ImagesInput from "@/app/manage/components/form/images-input";
 import { GetChairFormDTO } from "@/server/application/common/dtos/cloth";
 import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
-import TextAreaInput from "@/app/manage/components/form/text-area-input";
-import SwitchInput from "@/app/manage/components/form/checkbox-input";
-import ChairsPage from "@/app/manage/chairs/page";
 
 const EditChairFormSchema = z
   .object({
