@@ -1,14 +1,14 @@
-import {AddProductDTO} from "@/server/application/common/dtos/cloth";
+import {AddChairDTO} from "@/server/application/common/dtos/cloth";
 import {log} from "@/server/application/common/services/logging";
 import {dynamicClient} from "@/server/infrastructure/clients/sanity";
 import {deleteSize} from "@/server/infrastructure/repositories/attributes/size-repository";
 import {z} from "zod";
 import {createId} from "@paralleldrive/cuid2";
 
-type AddProductCommand = z.infer<typeof AddProductDTO>;
+type AddChairCommand = z.infer<typeof AddChairDTO>;
 
-export default async function createProductCommandHandler(
-    command: AddProductCommand
+export default async function createChairCommandHandler(
+    command: AddChairCommand
 ) {
     const {name,length,width,image} = command;
     const chair = {

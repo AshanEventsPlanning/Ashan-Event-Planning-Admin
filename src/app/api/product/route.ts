@@ -1,15 +1,15 @@
-import {AddProductDTO, EditProductDTO} from "@/server/application/common/dtos/cloth";
+import {AddChairDTO, EditChairDTO} from "@/server/application/common/dtos/cloth";
 import ValidationError from "@/server/application/common/errors/validation-error";
-import createProductCommandHandler from "@/server/application/features/product/commands/create-product-command";
+import createChairCommandHandler from "@/server/application/features/product/commands/create-product-command";
 import { NextRequest } from "next/server";
 
 export async function POST(request: NextRequest) {
   const body = await request.json();
-  const requestBody = AddProductDTO.safeParse(body);
+  const requestBody = AddChairDTO.safeParse(body);
   if (!requestBody.success) {
     throw new ValidationError(requestBody.error.message);
   }
-  await createProductCommandHandler({ ...requestBody.data });
+  await createChairCommandHandler({ ...requestBody.data });
 
   return new Response(null, {
     status: 201,

@@ -1,6 +1,6 @@
 import * as z from "zod";
 
-export const Cloth = z
+export const Chair = z
     .object({
         _id: z.string(),
         name: z.string(),
@@ -126,7 +126,7 @@ export const PaymentStatus = z.enum(["PENDING", "PAID"]);
 export const DeliveryStatus = z.enum(["IDLE", "PROCESSING", "DISPATCHED", "DELIVERED"]);
 export const ShippingMethod = z.enum(["DELIVERY", "PICKUP"]);
 
-export const ClothArray = Cloth.array();
+export const ClothArray = Chair.array();
 export const OrderArray = Order.array();
 export const NewOrderArray = NewOrder.array();
 export const CartItemArray = CartItem.array();

@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const AddProductDTO = z
+export const AddChairDTO = z
     .object({
         name: z.string().min(2).max(100),
         length: z.number().int().nonnegative(),
@@ -9,7 +9,7 @@ export const AddProductDTO = z
     })
     .strict();
 
-export const GetClothFormDTO = z
+export const GetChairFormDTO = z
     .object({
         _id: z.string(),
         name: z.string().min(2).max(100),
@@ -18,7 +18,7 @@ export const GetClothFormDTO = z
         image: z.string().array().nonempty({ message: "Please upload at least 1 image" }),
     })
 
-export const EditProductDTO = z
+export const EditChairDTO = z
     .object({
         _id: z.string(),
         name: z.string().min(2).max(100),

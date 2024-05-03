@@ -1,28 +1,28 @@
 "use client";
 
-import EditProductForm from "@/app/manage/chairs/[_id]/edit/components/edit-product-form/edit-product-form";
+import EditChairForm from "@/app/manage/chairs/[_id]/edit/components/edit-chair-form/edit-chair-form";
 import {useQuery} from "@tanstack/react-query";
-import {getClothById} from "@/lib/api/cloth";
+import {getChairById} from "@/lib/api/cloth";
 
-type EditProductPageProps = {
+type EditChairPageProps = {
     params: { _id: string }
 };
 
-export default function EditProductPage({params: {_id}}: EditProductPageProps) {
+export default function EditChairPage({params: {_id}}: EditChairPageProps) {
 
-    const {data: cloth, isLoading} = useQuery({
+    const {data: chair, isLoading} = useQuery({
         queryKey: ["CHAIR", _id],
-        queryFn: () => getClothById(_id),
+        queryFn: () => getChairById(_id),
     });
 
     return (
         <div>
-            <h2 className="p-2">Edit Product</h2>
+            <h2 className="p-2">Edit Chair</h2>
             <div className="p-4">
                 {isLoading ? (
                     "Loading..."
                 ) : (
-                    <EditProductForm cloth={cloth!}/>
+                    <EditChairForm chair={chair!}/>
                 )}
             </div>
         </div>

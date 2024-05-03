@@ -2,13 +2,13 @@
 
 import {columns} from "./components/columns";
 import {DataTable} from "./components/data-table";
-import {getClothes} from "@/lib/api/cloth";
+import {getChairs} from "@/lib/api/cloth";
 import {useQuery} from "@tanstack/react-query";
 
-function ProductsPage() {
-    const {data: clothes, isLoading} = useQuery({
+function ChairsPage() {
+    const {data: chairs, isLoading} = useQuery({
         queryKey: ["CHAIR"],
-        queryFn: getClothes,
+        queryFn: getChairs,
     });
 
     // const enabledProducts = clothes?.filter((product: { enabled: boolean; }) => product.enabled == true).length
@@ -20,11 +20,11 @@ function ProductsPage() {
                 {isLoading ? (
                     "Loading..."
                 ) : (
-                    <DataTable columns={columns} data={clothes!} />
+                    <DataTable columns={columns} data={chairs!} />
                 )}
             </div>
         </div>
     );
 }
 
-export default ProductsPage;
+export default ChairsPage;

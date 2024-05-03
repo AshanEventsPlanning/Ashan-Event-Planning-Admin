@@ -1,29 +1,19 @@
 "use client";
 
-import { DevTool } from "@hookform/devtools";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
-
-import { SelectItem } from "@/components/ui/select";
-import { addProduct, getSubCategoriesForCategory } from "@/lib/api/cloth";
+import { addChair  } from "@/lib/api/cloth";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import MediaInput from "../../../components/media-input/media-input";
 import NumberInput from "../../../../components/form/number-input";
-import SelectInput from "@/app/manage/components/form/select-input";
 import TextInput from "@/app/manage/components/form/text-input";
-import VariantsInput from "@/app/manage/chairs/components/variants-input/variants-input";
-import { getCategories } from "@/lib/api/category";
 import ImagesInput from "@/app/manage/components/form/images-input";
 import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
-import TextAreaInput from "@/app/manage/components/form/text-area-input";
-import SwitchInput from "@/app/manage/components/form/checkbox-input";
 
-const AddProductFormSchema = z
+const AddChairFormSchema = z
   .object({
     name: z.string().min(2).max(100),
     length: z.number().int().nonnegative(),
@@ -31,9 +21,9 @@ const AddProductFormSchema = z
     image: z.string().array().nonempty({ message: "Please upload at least 1 image" }),
   })
 
-function AddProductForm() {
-  const AddProductForm = useForm<z.infer<typeof AddProductFormSchema>>({
-    resolver: zodResolver(AddProductFormSchema),
+function AddChairForm() {
+  const AddChairForm = useForm<z.infer<typeof AddChairFormSchema>>({
+    resolver: zodResolver(AddChairFormSchema),
     defaultValues: {
       name: "",
       length: 0,
@@ -46,9 +36,9 @@ function AddProductForm() {
   const queryClient = useQueryClient();
 
 
-  const { mutate: addProductMutate, isLoading: isAddProductLoading } =
+  const { mutate: addChairMutate, isLoading: isAddChairLoading } =
     useMutation({
-      mutationFn: addProduct,
+      mutationFn: addChair,
       onSuccess: () => {
         // queryClient.invalidateQueries(["CHAIR"]);
         toast({ title: "Success", variant: "default" });
@@ -57,20 +47,20 @@ function AddProductForm() {
         toast({
           title: "Error",
           variant: "destructive",
-          description: "Error while adding product",
+          description: "Error while adding chair",
         });
       },
     });
 
-  const onSubmit = async (values: z.infer<typeof AddProductFormSchema>) => {
-    addProductMutate(values);
+  const onSubmit = async (values: z.infer<typeof AddChairFormSchema>) => {
+    addChairMutate(values);
   };
 
   return (
     <div>
-      <Form {...AddProductForm}>
+      <Form {...AddChairForm}>
         <form
-          onSubmit={AddProductForm.handleSubmit(onSubmit)}
+          onSubmit={AddChairForm.handleSubmit(onSubmit)}
           className="w-1/2"
         >
           <h4>Basic Information</h4>
@@ -87,7 +77,7 @@ function AddProductForm() {
 
           <div className="my-4">
             <Button type="submit">
-              {isAddProductLoading ? (
+              {isAddChairLoading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
               ) : (
                 "Create"
@@ -96,9 +86,9 @@ function AddProductForm() {
           </div>
         </form>
       </Form>
-      {/* <DevTool control={AddProductForm.control} /> */}
+      {/* <DevTool control={AddChairForm.control} /> */}
     </div>
   );
 }
 
-export default AddProductForm;
+export default AddChairForm;

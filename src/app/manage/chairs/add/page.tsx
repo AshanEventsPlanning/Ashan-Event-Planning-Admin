@@ -1,18 +1,18 @@
 "use client";
 
-import AddProductForm from "./components/add-product-form/add-product-form";
+import AddChairForm from "./components/add-chair-form/add-chair-form";
 
-function AddProductPage() {
+function AddChairPage() {
   return (
     <div>
       <h2 className="p-2">
         Add Product
       </h2>
       <div className="p-4">
-        <AddProductForm />
+        <AddChairForm />
       </div>
     </div>
   );
 }
 
-export default AddProductPage;
+export default AddChairPage;

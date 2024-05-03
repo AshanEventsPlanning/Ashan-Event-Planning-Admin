@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 
 import { SelectItem } from "@/components/ui/select";
-import { editProduct, getSubCategoriesForCategory } from "@/lib/api/cloth";
+import { editChair } from "@/lib/api/cloth";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import MediaInput from "@/app/manage/chairs/components/media-input/media-input";
 import NumberInput from "@/app/manage/components/form/number-input";
@@ -18,13 +18,14 @@ import TextInput from "@/app/manage/components/form/text-input";
 import VariantsInput from "@/app/manage/chairs/components/variants-input/variants-input";
 import { getCategories } from "@/lib/api/category";
 import ImagesInput from "@/app/manage/components/form/images-input";
-import { GetClothFormDTO } from "@/server/application/common/dtos/cloth";
+import { GetChairFormDTO } from "@/server/application/common/dtos/cloth";
 import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
 import TextAreaInput from "@/app/manage/components/form/text-area-input";
 import SwitchInput from "@/app/manage/components/form/checkbox-input";
+import ChairsPage from "@/app/manage/chairs/page";
 
-const EditProductFormSchema = z
+const EditChairFormSchema = z
   .object({
     name: z.string().min(2).max(100),
     length: z.number().int().nonnegative(),
@@ -32,14 +33,14 @@ const EditProductFormSchema = z
     image: z.string().array().nonempty({ message: "Please upload at least 1 image" }),
   })
 
-type EditProductFormProps = { cloth: z.infer<typeof GetClothFormDTO> };
+type EditChairFormProps = { chair: z.infer<typeof GetChairFormDTO> };
 
-function EditProductForm({ cloth }: EditProductFormProps) {
+function EditChairForm({ chair }: EditChairFormProps) {
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  const EditProductForm = useForm<z.infer<typeof EditProductFormSchema>>({
-    resolver: zodResolver(EditProductFormSchema),
-    defaultValues: { ...cloth },
+  const EditChairForm = useForm<z.infer<typeof EditChairFormSchema>>({
+    resolver: zodResolver(EditChairFormSchema),
+    defaultValues: { ...chair },
   });
 
   // const { data: categories, isLoading: isCategoriesLoading } = useQuery({
@@ -47,7 +48,7 @@ function EditProductForm({ cloth }: EditProductFormProps) {
   //   queryFn: getCategories,
   // });
 
-  // const selectedCategory = EditProductForm.watch("category");
+  // const selectedCategory = EditChairForm.watch("category");
 
   // const { data: subcategories, isLoading: isSubCategoriesLoading } = useQuery({
   //   queryKey: ["SUBCATEGORY", selectedCategory],
@@ -55,11 +56,11 @@ function EditProductForm({ cloth }: EditProductFormProps) {
   //   enabled: !!selectedCategory,
   // });
 
-  const { mutate: editProductMutate, isLoading: isEditProductLoading } =
+  const { mutate: editChairMutate, isLoading: isEditChairLoading } =
     useMutation({
-      mutationFn: editProduct,
+      mutationFn: editChair,
       onSuccess: () => {
-        queryClient.invalidateQueries(["CHAIR", cloth._id]);
+        queryClient.invalidateQueries(["CHAIR", chair._id]);
         queryClient.invalidateQueries(["CHAIR"]);
         toast({ title: "Success", variant: "default" });
       },
@@ -72,21 +73,21 @@ function EditProductForm({ cloth }: EditProductFormProps) {
       },
     });
 
-  const onSubmit = async (values: z.infer<typeof EditProductFormSchema>) => {
-    editProductMutate({
-      _id: cloth._id,
+  const onSubmit = async (values: z.infer<typeof EditChairFormSchema>) => {
+    editChairMutate({
+      _id: chair._id,
       product: {
         ...values,
-        _id: cloth._id,
+        _id: chair._id,
       },
     });
   };
 
   return (
     <div>
-      <Form {...EditProductForm}>
+      <Form {...EditChairForm}>
         <form
-          onSubmit={EditProductForm.handleSubmit(onSubmit)}
+          onSubmit={EditChairForm.handleSubmit(onSubmit)}
           className="w-1/2"
         >
           <h4>Basic Information</h4>
@@ -102,7 +103,7 @@ function EditProductForm({ cloth }: EditProductFormProps) {
           </div>
           <div className="my-4">
             <Button type="submit">
-              {isEditProductLoading ? (
+              {isEditChairLoading ? (
                 <Loader2 className="h-4 w-4 animate-spin" />
               ) : (
                 "Save Changes"
@@ -111,9 +112,9 @@ function EditProductForm({ cloth }: EditProductFormProps) {
           </div>
         </form>
       </Form>
-      <DevTool control={EditProductForm.control} />
+      <DevTool control={EditChairForm.control} />
     </div>
   );
 }
 
-export default EditProductForm;
+export default EditChairForm;
