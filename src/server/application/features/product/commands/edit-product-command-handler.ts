@@ -2,7 +2,6 @@ import {EditChairDTO} from "@/server/application/common/dtos/cloth";
 import {log} from "@/server/application/common/services/logging";
 import {dynamicClient} from "@/server/infrastructure/clients/sanity";
 import {z} from "zod";
-import {createId} from "@paralleldrive/cuid2";
 
 type EditChairCommand = z.infer<typeof EditChairDTO>;
 

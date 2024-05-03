@@ -25,15 +25,15 @@ export const getChairById = async (_id: string) => {
   return data;
 };
 
-export const addChair = async (product: z.infer<typeof AddChairDTO>) => {
-  const res = await api.post("/api/product", { json: product });
+export const addChair = async (chair: z.infer<typeof AddChairDTO>) => {
+  const res = await api.post("/api/chair", { json: chair });
 };
 export const editChair = async ({
   _id,
-  product,
+  chair,
 }: {
   _id: string;
-  product: z.infer<typeof EditChairDTO>;
+  chair: z.infer<typeof EditChairDTO>;
 }) => {
-  const res = await api.put(`/api/product/${_id}`, { json: product });
+  const res = await api.put(`/api/chair/${_id}`, { json: chair });
 };
