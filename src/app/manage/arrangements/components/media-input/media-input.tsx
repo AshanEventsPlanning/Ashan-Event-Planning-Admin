@@ -7,13 +7,7 @@ import {
 import { useFieldArray, useFormContext } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { PlusCircleIcon, Trash2Icon } from "lucide-react";
-import { SelectItem } from "@/components/ui/select";
-import { getColors } from "@/lib/api/cloth";
-import { useQuery } from "@tanstack/react-query";
-
-import SelectInput from "@/app/manage/components/form/select-input";
 import ImagesInput from "@/app/manage/components/form/images-input";
-import SwitchInput from "@/app/manage/components/form/checkbox-input";
 
 type MediaInputProps = {
   name: string;
