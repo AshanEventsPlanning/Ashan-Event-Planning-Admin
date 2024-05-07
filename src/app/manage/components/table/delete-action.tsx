@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
-import { deleteCategory } from "@/lib/api/category";
 import {
   MutationFunction,
   useMutation,
