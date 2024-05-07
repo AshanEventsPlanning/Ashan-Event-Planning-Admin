@@ -5,7 +5,6 @@ import { DataTable } from "./components/data-table";
 import { getOrders } from "@/lib/api/order";
 import { useQuery } from "@tanstack/react-query";
 import { Card } from "@/components/ui/card";
-import FilterForm from "@/app/manage/orders/components/filter-form/filter-form";
 import { useSearchParams } from "next/navigation";
 import { getRange } from "@/app/manage/orders/components/utils/utils";
 
