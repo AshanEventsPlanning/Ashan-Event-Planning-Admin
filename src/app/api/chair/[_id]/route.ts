@@ -1,7 +1,7 @@
 import {NextRequest} from "next/server";
 import {EditChairDTO} from "@/server/application/common/dtos/cloth";
 import ValidationError from "@/server/application/common/errors/validation-error";
-import editChairCommandHandler from "@/server/application/features/product/commands/edit-product-command-handler";
+import editChairCommandHandler from "@/server/application/features/chair/commands/edit-chair-command-handler";
 
 export async function PUT(
     request: NextRequest,
