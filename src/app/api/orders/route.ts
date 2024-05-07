@@ -1,5 +1,4 @@
 import lifeCycleErrorHandlingMiddleware from "@/server/api/middleware/lifecycle-error-handling-middleware";
-import { OrderFilters } from "@/server/application/common/dtos/order";
 import ValidationError from "@/server/application/common/errors/validation-error";
 import { log } from "@/server/application/common/services/logging";
 import getOrdersQueryHandler from "@/server/application/features/order/queries/get-orders-query-handler";
