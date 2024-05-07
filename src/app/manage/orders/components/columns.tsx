@@ -1,15 +1,7 @@
 "use client";
 
-import ActionDropdown from "@/app/manage/components/table/action-dropdown";
-import DeleteAction from "@/app/manage/components/table/delete-action";
-import EditAction from "@/app/manage/components/table/edit-action";
-import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
-import { deleteCategory } from "@/lib/api/category";
-import { GetCategoryDTO } from "@/server/application/common/dtos/category";
 import { GetOrderDTO } from "@/server/application/common/dtos/order";
 import { ColumnDef } from "@tanstack/react-table";
-import { MoreHorizontal } from "lucide-react";
-import Link from "next/link";
 import { z } from "zod";
 
 export const columns: ColumnDef<z.infer<typeof GetOrderDTO>>[] = [
