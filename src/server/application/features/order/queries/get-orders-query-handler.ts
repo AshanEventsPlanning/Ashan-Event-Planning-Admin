@@ -1,4 +1,3 @@
-import { OrderFilters } from "@/server/application/common/dtos/order";
 import { getOrders } from "@/server/infrastructure/repositories/order/order-repository";
 import { z } from "zod";
 
