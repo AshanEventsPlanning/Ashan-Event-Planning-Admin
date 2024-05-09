@@ -16,7 +16,7 @@ function Navigation() {
     return (
         <div className="border-r min-h-screen flex flex-col justify-between">
             <div>
-                <h2 className="p-2">Kandy Selection</h2>
+                <h2 className="p-2">Ashan Event Planning</h2>
                 <NavigationMenu orientation="vertical">
                     <NavigationMenuList asChild>
                         <ul className="flex flex-col items-stretch py-4 pl-4 gap-y-2 space-x-0">
