@@ -21,11 +21,11 @@ export const columns: ColumnDef<z.infer<typeof Chair>>[] = [
     },
     {
         accessorKey: "length",
-        header: "Enabled"
+        header: "Length"
     },
     {
         accessorKey: "width",
-        header: "Category"
+        header: "Width"
     },
     {
         id: "actions",
