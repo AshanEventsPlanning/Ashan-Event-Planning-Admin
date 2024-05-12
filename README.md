@@ -1,3 +1,6 @@
+Deployed to : https://space-admin-phi.vercel.app/manage/chairs
+Source code: https://github.com/AdeeshaD2001/space-admin
+
 After cloning the git repository, 
 
 First, install the libraries:
