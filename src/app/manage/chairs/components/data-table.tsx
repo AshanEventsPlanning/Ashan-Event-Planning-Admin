@@ -61,7 +61,7 @@ export function DataTable<TData, TValue>({
             <div className="flex py-4 justify-between">
                 <div>
                     <Button onClick={() => router.push("/manage/chairs/add")}>
-                        Create C
+                        Create Chair
                     </Button>
                 </div>
                 <div className="flex" >
