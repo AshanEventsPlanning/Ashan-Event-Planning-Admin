@@ -6,6 +6,8 @@ export const Chair = z
         name: z.string(),
         length: z.number(),
         width: z.number(),
+        price: z.any(),
+        stock: z.any(),
         image: z.string().array()
     })
     .strict();
@@ -15,6 +17,8 @@ export const Table = z
         name: z.string(),
         length: z.number(),
         width: z.number(),
+        price: z.any(),
+        stock: z.any(),
         image: z.string().array()
     })
     .strict();

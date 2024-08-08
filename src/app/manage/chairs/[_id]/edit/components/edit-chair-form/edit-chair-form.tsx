@@ -22,6 +22,8 @@ const EditChairFormSchema = z
     name: z.string().min(2).max(100),
     length: z.number().int().nonnegative(),
     width: z.number().int().nonnegative(),
+      price: z.number().int().nonnegative(),
+      stock: z.number().int().nonnegative(),
     image: z.string().array().nonempty({ message: "Please upload at least 1 image" }),
   })
 
@@ -74,6 +76,8 @@ function EditChairForm({ chair }: EditChairFormProps) {
             <TextInput name="name" placeholder="Square Chair" label="Name" />
             <NumberInput name="length" label="Length" />
             <NumberInput name="width" label="Width" />
+              <NumberInput name="price" label="Price"/>
+              <NumberInput name="stock" label="Stock"/>
             <ImagesInput
               constrain={1}
               name={`image`}

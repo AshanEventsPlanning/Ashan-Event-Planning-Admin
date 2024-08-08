@@ -5,10 +5,7 @@ import { ColumnDef } from "@tanstack/react-table";
 import { z } from "zod";
 
 export const columns: ColumnDef<z.infer<typeof GetOrderDTO>>[] = [
-  {
-    accessorKey: "id",
-    header: "ID",
-  },
+
   {
     accessorKey: "chair",
     header: "Chair",
@@ -18,16 +15,16 @@ export const columns: ColumnDef<z.infer<typeof GetOrderDTO>>[] = [
     header: "Table",
   },
   {
-    accessorKey: "arrangement",
-    header: "Arrangement",
+    accessorKey: "noOfChairs",
+    header: "Chair Count",
   },
   {
-    accessorKey: "length",
-    header: "Length",
+    accessorKey: "noOfCTables",
+    header: "Table Count",
   },
   {
-    accessorKey: "width",
-    header: "Width",
+    accessorKey: "totalPrice",
+    header: "Total Price",
   },
   {
     accessorKey: "location",
@@ -41,26 +38,4 @@ export const columns: ColumnDef<z.infer<typeof GetOrderDTO>>[] = [
     accessorKey: "time",
     header: "Time",
   },
-  // {
-  //   id: "actions",
-  //   header: "Manage",
-  //   cell: ({ row }) => {
-  //     const { id } = row.original;
-  //     return (
-  //       <ActionDropdown>
-  //         <DropdownMenuItem>
-  //           <Link className="block w-full" href={`/manage/orders/${id}`}>View</Link>
-  //         </DropdownMenuItem>
-  //         {/* <DropdownMenuItem className="text-red-500">
-  //           <DeleteAction
-  //             _id={id}
-  //             queryKey="ORDER"
-  //             mutationFn={deleteOrder}
-  //             message="This category is referenced by other documents"
-  //           />
-  //         </DropdownMenuItem> */}
-  //       </ActionDropdown>
-  //     );
-  //   },
-  // },
 ];

@@ -1,9 +1,6 @@
-import { getOrders } from "@/server/infrastructure/repositories/order/order-repository";
-import { z } from "zod";
-
+import {getOrders} from "@/server/infrastructure/repositories/order/order-repository";
 
 
 export default async function getOrdersQueryHandler() {
-    const orders = await getOrders();
-    return orders;
+    return getOrders();
 }

@@ -18,6 +18,8 @@ const AddTableFormSchema = z
     name: z.string().min(2).max(100),
     length: z.number().int().nonnegative(),
     width: z.number().int().nonnegative(),
+      price: z.number().int().nonnegative(),
+      stock: z.number().int().nonnegative(),
     image: z.string().array().nonempty({ message: "Please upload at least 1 image" }),
   })
 
@@ -28,6 +30,8 @@ function AddTableForm() {
       name: "",
       length: 0,
       width: 0,
+        price: 0,
+        stock: 0,
       image:[]
     },
   });
@@ -68,6 +72,8 @@ function AddTableForm() {
             <TextInput name="name" placeholder="Square Table" label="Name" />
             <NumberInput name="length" label="Length" />
             <NumberInput name="width" label="Width" />
+              <NumberInput name="price" label="Price"/>
+              <NumberInput name="stock" label="Stock"/>
             <ImagesInput
               constrain={1}
               name={`image`}

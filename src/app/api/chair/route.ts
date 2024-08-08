@@ -6,6 +6,7 @@ import { NextRequest } from "next/server";
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const requestBody = AddChairDTO.safeParse(body);
+  console.log("req:",requestBody)
   if (!requestBody.success) {
     throw new ValidationError(requestBody.error.message);
   }

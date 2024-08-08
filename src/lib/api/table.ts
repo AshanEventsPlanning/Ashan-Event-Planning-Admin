@@ -13,14 +13,14 @@ import {
 import api from "@/lib/api/base";
 
 export const getTables = async () => {
-  let query = `*[_type == "table" ] {_id,name,length,width,image}`;
+  let query = `*[_type == "table" ] {_id,name,length,width,price,stock,image}`;
   const data = Table.array().parse(await staticClient.fetch(query));
   console.log(data)
   return data;
 };
 
 export const getTableById = async (_id: string) => {
-  let query = groq`*[_type == "table" && _id == "${_id}"] {_id,name,length,width,image}`;
+  let query = groq`*[_type == "table" && _id == "${_id}"] {_id,name,length,width,price,stock,image}`;
   const data = GetTableFormDTO.parse((await dynamicClient.fetch(query))[0]);
   console.log(data);
   return data;

@@ -10,7 +10,7 @@ function ChairsPage() {
         queryKey: ["CHAIR"],
         queryFn: getChairs,
     });
-
+    console.log(chairs)
     // const enabledProducts = clothes?.filter((product: { enabled: boolean; }) => product.enabled == true).length
 
     return (

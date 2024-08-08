@@ -9,14 +9,18 @@ type AddChairCommand = z.infer<typeof AddChairDTO>;
 export default async function createChairCommandHandler(
     command: AddChairCommand
 ) {
-    const {name,length,width,image} = command;
+    const {name,length,width,price,stock,image} = command;
     const chair = {
         _id:createId(),
         _type: "chair",
         name,
         length,
         width,
+        price,
+        stock,
         image
     };
+    console.log(chair)
+
     const publishedCloth = await dynamicClient.create(chair);
 }

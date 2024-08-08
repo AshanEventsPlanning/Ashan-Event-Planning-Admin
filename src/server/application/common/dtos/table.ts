@@ -1,11 +1,13 @@
-import { z } from "zod";
+import {z} from "zod";
 
 export const AddTableDTO = z
     .object({
         name: z.string().min(2).max(100),
         length: z.number().int().nonnegative(),
         width: z.number().int().nonnegative(),
-        image: z.string().array().nonempty({ message: "Please upload at least 1 image" }),
+        price: z.number().int().nonnegative(),
+        stock: z.number().int().nonnegative(),
+        image: z.string().array().nonempty({message: "Please upload at least 1 image"}),
     })
     .strict();
 
@@ -15,7 +17,9 @@ export const GetTableFormDTO = z
         name: z.string().min(2).max(100),
         length: z.number().int().nonnegative(),
         width: z.number().int().nonnegative(),
-        image: z.string().array().nonempty({ message: "Please upload at least 1 image" }),
+        price: z.any(),
+        stock: z.any(),
+        image: z.string().array().nonempty({message: "Please upload at least 1 image"}),
     })
 
 export const EditTableDTO = z
@@ -24,6 +28,8 @@ export const EditTableDTO = z
         name: z.string().min(2).max(100),
         length: z.number().int().nonnegative(),
         width: z.number().int().nonnegative(),
-        image: z.string().array().nonempty({ message: "Please upload at least 1 image" }),
+        price: z.number().int().nonnegative(),
+        stock: z.number().int().nonnegative(),
+        image: z.string().array().nonempty({message: "Please upload at least 1 image"}),
     })
     .strict();

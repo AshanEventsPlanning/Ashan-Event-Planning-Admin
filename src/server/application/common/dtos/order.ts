@@ -1,15 +1,14 @@
 import { z } from "zod";
 
 export const GetOrderDTO = z.object({
-  id: z.number(),
+  id: z.string(),
   chair: z.string(),
   table: z.string(),
-  arrangement: z.string(),
-  length: z.number(),
-  width: z.number(),
+  noOfChairs: z.number(),
+  noOfCTables: z.number(),
+  totalPrice: z.number(),
   location: z.string(),
   date: z.string(),
   time: z.string(),
-  noOfArrangements: z.number(),
   userId: z.string(),
 });

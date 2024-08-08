@@ -53,6 +53,7 @@ export function DataTable<TData, TValue>({
 
     const router = useRouter();
 
+    console.log("Data",data)
     
 
 

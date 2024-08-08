@@ -28,6 +28,14 @@ export const columns: ColumnDef<z.infer<typeof Chair>>[] = [
         header: "Width"
     },
     {
+        accessorKey: "price",
+        header: "Price"
+    },
+    {
+        accessorKey: "stock",
+        header: "Stock"
+    },
+    {
         id: "actions",
         header: "Manage",
         cell: ({row}) => {

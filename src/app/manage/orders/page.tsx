@@ -14,6 +14,7 @@ function OrdersPage() {
     queryKey: ["ORDER"],
     queryFn: () => getOrders(),
   });
+  console.log("qur",data)
   return (
     <div>
       <h2 className="p-2">Orders</h2>

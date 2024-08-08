@@ -7,13 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postinstall": "prisma generate"
+    "postinstall": "prisma generate",
+    "prismapush": "prisma db push",
+    "prismastudio": "prisma studio"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.400.0",
     "@aws-sdk/s3-request-presigner": "^3.400.0",
     "@aws-sdk/signature-v4-crt": "^3.410.0",
     "@clerk/nextjs": "^4.27.1",
+    "@mui/icons-material": "^5.14.9",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.3.1",
     "@paralleldrive/cuid2": "^2.2.2",
