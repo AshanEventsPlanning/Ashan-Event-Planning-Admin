@@ -11,4 +11,5 @@ export const GetOrderDTO = z.object({
   date: z.string(),
   time: z.string(),
   userId: z.string(),
+  status:z.string()
 });

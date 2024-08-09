@@ -19,6 +19,7 @@ model Order {
   totalPrice Float
   user    User    @relation(fields: [userId], references: [user_id])
   userId  String
+  status String
 }
 
 model User {

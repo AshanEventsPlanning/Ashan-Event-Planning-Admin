@@ -12,9 +12,7 @@ export const getChairs = async () => {
 
 export const getChairById = async (_id: string) => {
   let query = groq`*[_type == "chair" && _id == "${_id}"] {_id,name,length,width,price,stock,image}`;
-  const data = GetChairFormDTO.parse((await dynamicClient.fetch(query))[0]);
-  console.log(data);
-  return data;
+  return GetChairFormDTO.parse((await dynamicClient.fetch(query))[0]);
 };
 
 export const addChair = async (chair: z.infer<typeof AddChairDTO>) => {
