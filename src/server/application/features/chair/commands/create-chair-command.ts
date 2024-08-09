@@ -9,7 +9,7 @@ type AddChairCommand = z.infer<typeof AddChairDTO>;
 export default async function createChairCommandHandler(
     command: AddChairCommand
 ) {
-    const {name,length,width,price,stock,image} = command;
+    const {name,length,width,price,stock,status,image} = command;
     const chair = {
         _id:createId(),
         _type: "chair",
@@ -17,7 +17,8 @@ export default async function createChairCommandHandler(
         length,
         width,
         price,
-        stock,
+        stock,status,
+
         image
     };
     console.log(chair)

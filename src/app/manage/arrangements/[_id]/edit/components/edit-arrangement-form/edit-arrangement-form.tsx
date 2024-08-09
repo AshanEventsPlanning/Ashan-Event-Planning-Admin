@@ -56,6 +56,7 @@ function EditArrangementForm({ arrangement }: EditArrangementFormProps) {
       arrangement: {
         ...values,
         _id: arrangement._id,
+        status:"Available"
       },
     });
   };

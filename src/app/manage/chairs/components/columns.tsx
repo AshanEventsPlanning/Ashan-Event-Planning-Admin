@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {ArrowUpDown, MoreHorizontal} from "lucide-react";
 import EditAction from "@/app/manage/components/table/edit-action";
+import DeleteChairAction from "@/app/manage/components/table/delete-chair";
 
 export const columns: ColumnDef<z.infer<typeof Chair>>[] = [
     {
@@ -52,6 +53,9 @@ export const columns: ColumnDef<z.infer<typeof Chair>>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuItem><EditAction href={`/manage/chairs/${chair._id}/edit`}
                                                       text={"Edit"}/></DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <DeleteChairAction  text={"Delete"} chair={chair}/>
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             );

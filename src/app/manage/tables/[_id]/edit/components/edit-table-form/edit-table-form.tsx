@@ -60,6 +60,7 @@ function EditTableForm({table}: EditTableFormProps) {
             table: {
                 ...values,
                 _id: table._id,
+                status:"Available"
             },
         });
     };

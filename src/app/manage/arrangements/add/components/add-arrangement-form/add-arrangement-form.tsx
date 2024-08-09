@@ -17,6 +17,7 @@ const AddArrangementFormSchema = z
   .object({
     name: z.string().min(2).max(100),
     chairspertable: z.number().int().nonnegative(),
+    status:z.string()
   })
 
 function AddArrangementForm() {
@@ -25,6 +26,7 @@ function AddArrangementForm() {
     defaultValues: {
       name: "",
       chairspertable: 0,
+      status:"Available"
     },
   });
 

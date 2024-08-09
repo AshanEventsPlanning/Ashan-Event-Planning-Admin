@@ -13,14 +13,14 @@ import {
 import api from "@/lib/api/base";
 
 export const getTables = async () => {
-  let query = `*[_type == "table" ] {_id,name,length,width,price,stock,image}`;
+  let query = `*[_type == "table" && status == "Available" ] {_id,name,length,width,price,stock,status,image}`;
   const data = Table.array().parse(await staticClient.fetch(query));
   console.log(data)
   return data;
 };
 
 export const getTableById = async (_id: string) => {
-  let query = groq`*[_type == "table" && _id == "${_id}"] {_id,name,length,width,price,stock,image}`;
+  let query = groq`*[_type == "table" && _id == "${_id}" && status == "Available"] {_id,name,length,width,price,stock,status,image}`;
   const data = GetTableFormDTO.parse((await dynamicClient.fetch(query))[0]);
   console.log(data);
   return data;
@@ -37,4 +37,14 @@ export const editTable = async ({
   table: z.infer<typeof EditTableDTO>;
 }) => {
   const res = await api.put(`/api/table/${_id}`, { json: table });
+};
+
+export const deleteTable = async ({
+                                  _id,
+                                  table,
+                                }: {
+  _id: string;
+  table: z.infer<typeof EditTableDTO>;
+}) => {
+  return  api.put(`/api/table/${_id}`, { json: {...table,status:"Removed"} });
 };

@@ -57,21 +57,22 @@ export const columns: ColumnDef<z.infer<typeof GetOrderDTO>>[] = [
       const order = row.original;
 
       return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4"/>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem>
-                {order.status !== "Returned" && <Link className="text-orange-500 block w-full" href={`/manage/orders/${order.id}/return`}>
-                  Return Items
-                </Link>}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          order.status !== "Returned" && <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="h-8 w-8 p-0">
+                  <span className="sr-only">Open menu</span>
+                  <MoreHorizontal className="h-4 w-4"/>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem >
+                  <Link className="text-orange-500 block w-full" href={`/manage/orders/${order.id}/return`}>
+                    Return Items
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+
       );
     },
   },

@@ -20,6 +20,7 @@ const AddChairFormSchema = z
         width: z.number().int().nonnegative(),
         price: z.number().int().nonnegative(),
         stock: z.number().int().nonnegative(),
+        status:z.string(),
         image: z.string().array().nonempty({message: "Please upload at least 1 image"}),
     })
 
@@ -32,6 +33,7 @@ function AddChairForm() {
             width: 0,
             price: 0,
             stock: 0,
+            status: "Available",
             image: []
         },
     });

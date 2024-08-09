@@ -8,12 +8,13 @@ type EditArrangementCommand = z.infer<typeof EditArrangementDTO>;
 export default async function editArrangementCommandHandler(
     command: EditArrangementCommand
 ) {
-    const { _id, name, chairspertable } = command;
+    const { _id, name, chairspertable,status } = command;
     const arrangement = {
         _id,
         _type: "arrangement",
         name,
-        chairspertable
+        chairspertable,
+        status
     };
     const publishedCloth = await dynamicClient.createOrReplace(arrangement);
 }

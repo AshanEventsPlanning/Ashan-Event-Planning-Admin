@@ -9,13 +9,13 @@ type AddTableCommand = z.infer<typeof AddTableDTO>;
 export default async function createTableCommandHandler(
     command: AddTableCommand
 ) {
-    const {name,length,width,price,stock,image} = command;
+    const {name,length,width,price,stock,status,image} = command;
     const table = {
         _id:createId(),
         _type: "table",
         name,
         length,
-        width,price,stock,
+        width,price,stock,status,
         image
     };
     const publishedCloth = await dynamicClient.create(table);

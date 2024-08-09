@@ -28,19 +28,19 @@ export const getOrderById = async (id:string) => {
 
 
 export async function getChairById( chair: string) {
-  const query = `*[_type=="chair" && _id=="${chair}"]{_id, name, length, width,price,stock, image}`;
+  const query = `*[_type=="chair" && _id=="${chair}"]{_id, name, length, width,price,stock,status, image}`;
   return GetChairFormDTO.array().parse(await staticClient.fetch(query))[0];
 }
 
 export async function getTableById( table: string) {
-  const query = `*[_type=="table" && _id=="${table}"]{_id, name, length, width,price,stock, image}`;
+  const query = `*[_type=="table" && _id=="${table}"]{_id, name, length, width,price,stock,status, image}`;
   return GetTableFormDTO.array().parse(await staticClient.fetch(query))[0];
 }export async function getChairNameById( chair: string) {
-  const query = `*[_type=="chair" && _id=="${chair}"]{_id, name, length, width,price,stock, image}`;
+  const query = `*[_type=="chair" && _id=="${chair}"]{_id, name, length, width,price,stock,status, image}`;
   return GetChairFormDTO.array().parse(await staticClient.fetch(query))[0].name;
 }
 
 export async function getTableNameById( table: string) {
-  const query = `*[_type=="table" && _id=="${table}"]{_id, name, length, width,price,stock, image}`;
+  const query = `*[_type=="table" && _id=="${table}"]{_id, name, length, width,price,stock,status, image}`;
   return GetTableFormDTO.array().parse(await staticClient.fetch(query))[0].name;
 }

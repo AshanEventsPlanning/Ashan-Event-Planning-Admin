@@ -13,6 +13,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {ArrowUpDown, MoreHorizontal} from "lucide-react";
 import EditAction from "@/app/manage/components/table/edit-action";
+import DeleteTableAction from "@/app/manage/components/table/delete-table";
+import DeleteArrangementAction from "@/app/manage/components/table/delete-arrangement";
 
 export const columns: ColumnDef<z.infer<typeof Arrangement>>[] = [
     {
@@ -40,6 +42,9 @@ export const columns: ColumnDef<z.infer<typeof Arrangement>>[] = [
                     <DropdownMenuContent align="end">
                         <DropdownMenuItem><EditAction href={`/manage/arrangements/${arrangement._id}/edit`}
                                                       text={"Edit"}/></DropdownMenuItem>
+                        <DropdownMenuItem>
+                            <DeleteArrangementAction  text={"Delete"} arrangement={arrangement}/>
+                        </DropdownMenuItem>
                     </DropdownMenuContent>
                 </DropdownMenu>
             );
