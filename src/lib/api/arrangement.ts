@@ -14,13 +14,13 @@ import api from "@/lib/api/base";
 
 export const getArrangements = async () => {
   let query = `*[_type == "arrangement" && status == "Available"] {_id,name,chairspertable,status}`;
-  const data = Arrangement.array().parse(await staticClient.fetch(query));
+  const data = Arrangement.array().parse(await dynamicClient.fetch(query));
   console.log(data)
   return data;
 };
 
 export const getArrangementById = async (_id: string) => {
-  let query = groq`*[_type == "arrangement" && _id == "${_id}" && status == "Available"] {_id,name,chairspertable,status}`;
+  let query = `*[_type == "arrangement" && _id == "${_id}" && status == "Available"] {_id,name,chairspertable,status}`;
   const data = GetArrangementFormDTO.parse((await dynamicClient.fetch(query))[0]);
   console.log(data);
   return data;

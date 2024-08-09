@@ -7,11 +7,11 @@ import api from "@/lib/api/base";
 
 export const getChairs = async () => {
     let query = `*[_type == "chair" && status == "Available" ] {_id,name,length,width,price,stock,status,image}`;
-    return Chair.array().parse(await staticClient.fetch(query));
+    return Chair.array().parse(await dynamicClient.fetch(query));
 };
 
 export const getChairById = async (_id: string) => {
-    let query = groq`*[_type == "chair" && _id == "${_id} "  && status == "Available"] {_id,name,length,width,price,stock,status,image}`;
+    let query = `*[_type == "chair" && _id == "${_id}"] {_id,name,length,width,price,stock,status,image}`;
     return GetChairFormDTO.parse((await dynamicClient.fetch(query))[0]);
 };
 
