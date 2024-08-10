@@ -1,7 +1,10 @@
 import prisma from "../../clients/prisma";
 
 export const getOrders = async () => {
-  return prisma.order.findMany();
+  await prisma.$connect()
+  const orders = await prisma.order.findMany();
+  await prisma.$disconnect()
+  return orders;
 };
 
 export const updateOrderStatus = async (id: string, status: string) => {

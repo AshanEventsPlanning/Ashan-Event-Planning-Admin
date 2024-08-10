@@ -9,7 +9,6 @@ import { useSearchParams } from "next/navigation";
 import { getRange } from "@/app/manage/orders/components/utils/utils";
 
 function OrdersPage() {
-
   const { data, isLoading } = useQuery({
     queryKey: ["ORDER"],
     queryFn: () => getOrders(),
