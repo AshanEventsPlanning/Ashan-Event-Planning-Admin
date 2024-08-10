@@ -1,4 +1,4 @@
-"use client";
+
 
 import { GetOrderDTO } from "@/server/application/common/dtos/order";
 import { ColumnDef } from "@tanstack/react-table";
@@ -6,11 +6,8 @@ import { z } from "zod";
 import {DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger} from "@/components/ui/dropdown-menu";
 import {Button} from "@/components/ui/button";
 import {MoreHorizontal} from "lucide-react";
-import EditAction from "@/app/manage/components/table/edit-action";
 import Link from "next/link";
-import api from "@/lib/api/base";
-import {getOrderById, getOrders} from "@/lib/api/order";
-import { useQuery } from "@tanstack/react-query";
+
 
 export const columns: ColumnDef<z.infer<typeof GetOrderDTO>>[] = [
 
