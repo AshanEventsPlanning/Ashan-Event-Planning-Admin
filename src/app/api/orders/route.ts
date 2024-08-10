@@ -2,7 +2,7 @@ import lifeCycleErrorHandlingMiddleware from "@/server/api/middleware/lifecycle-
 import { log } from "@/server/application/common/services/logging";
 import getOrdersQueryHandler from "@/server/application/features/order/queries/get-orders-query-handler";
 import { NextRequest } from "next/server";
-
+export const dynamic = 'force-dynamic'
 export async function GET(request: NextRequest) {
   try {
     const orders = await getOrdersQueryHandler();
