@@ -1,5 +1,8 @@
 import prisma from "@/server/infrastructure/clients/prisma";
 
 export const getUsers = async ()=>{
-    return prisma.user.findMany();
+    await prisma.$connect()
+    const users = await prisma.user.findMany();
+    await prisma.$disconnect()
+    return users;
 }
